@@ -18,8 +18,8 @@ class PlanetType:
     __snow_biome = (255, 255, 255)
     __mountains = (20, 30, 45)
     # Clouds
-    __cloud_body = (255, 255, 255, 130)
-    __cloud_shape = (220, 255, 255, 120)
+    __cloud_body = (255, 255, 255, 160)
+    __cloud_shape = (220, 255, 255, 150)
 
     g_type_moderate = (
         __deep_ocean_biome,
@@ -42,6 +42,18 @@ class PlanetType:
         __mountains,
         __snow_biome,
         __snow_biome
+    )
+
+    g_type_dune = (
+        __desert_biome,
+        __coast_biome,
+        __desert_biome,
+        __desert_biome,
+        __coast_biome,
+        __coast_biome,
+        __g_oasis_biome,
+        __coastal_biome,
+        __ocean_biome,
     )
 
     g_type_cold = (
