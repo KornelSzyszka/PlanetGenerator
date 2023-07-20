@@ -32,7 +32,7 @@ class NoiseGen:
         return normalized_cloud_noise
 
     @staticmethod
-    def generate_noise(resolution, t): # t = avg_temperature
+    def generate_noise(resolution, t):  # t = avg_temperature
         center = resolution // 2
         scale = 0.2 * resolution
         octaves = 8
@@ -44,8 +44,7 @@ class NoiseGen:
         water_noise_array = np.zeros((resolution, resolution))
         land_noise_array = np.zeros((resolution, resolution))
 
-        sea_level = abs((1 / (1.4 * 10 ** 8)) * t * (t + 30) * (t - 60) * (t - 50) * (t + 60))
-        print(sea_level)
+        sea_level = abs((1 / (1.6 * 10 ** 8)) * t * (t + 30) * (t - 60) * (t - 50) * (t + 60))
 
         for y in range(resolution):
             for x in range(resolution):
@@ -86,8 +85,8 @@ class NoiseGen:
             for x in range(resolution):
                 if land_normalized[y, x] > 0:
                     z = abs(y - center)  # Distance from center
-                    land_normalized[y, x] += abs((z / (1.3 * 10**8)) * (t - 60) * (t - 50) * (t + 50))
-                    if land_normalized[y, x] > 1:
-                        land_normalized[y, x] = 1
+                    land_normalized[y, x] += (z/(resolution//2)) - 3*abs(t)/100
+                    land_normalized[y, x] = min(0.98, land_normalized[y, x])
+                    land_normalized[y, x] = max(0.1, land_normalized[y, x])
 
         return water_normalized, land_normalized

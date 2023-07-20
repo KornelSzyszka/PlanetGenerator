@@ -4,7 +4,7 @@ import body_gen as bg
 
 resolution = 1024
 
-avg_temperature = 12
+avg_temperature = 10
 
 noise_map = ng.NoiseGen.generate_noise(resolution, avg_temperature)
 clouds_noise_map = ng.NoiseGen.generate_clouds_noise(resolution)
@@ -37,8 +37,8 @@ for y in range(resolution):
             if lower <= water_noise_value <= upper:
                 water_array[x, y] = color
                 break
-shadow_image = Image.open("shadow.png")
-shadow_image.resize((resolution, resolution), Image.LANCZOS)
+
+shadow_image = Image.open("shadow.png").resize((resolution, resolution), Image.LANCZOS)
 planet_image = Image.alpha_composite(water_image, land_image)
 output_image = Image.alpha_composite(planet_image, clouds_image)
 output_image = Image.alpha_composite(output_image, shadow_image)
