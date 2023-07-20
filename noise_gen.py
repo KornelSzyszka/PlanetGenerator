@@ -7,9 +7,9 @@ class NoiseGen:
     @staticmethod
     def generate_clouds_noise(resolution):
         center = resolution // 2
-        scale = 0.2 * resolution
+        scale = 0.3 * resolution
         octaves = 6
-        persistence = 0.5
+        persistence = 0.45
         lacunarity = 2.0
         seed = random.randint(0, 100)
         noise_array = np.zeros((resolution, resolution))
@@ -35,8 +35,8 @@ class NoiseGen:
     def generate_noise(resolution, t): # t = avg_temperature
         center = resolution // 2
         scale = 0.2 * resolution
-        octaves = 6
-        persistence = 0.5
+        octaves = 8
+        persistence = 0.55
         lacunarity = 2.0
         seed = random.randint(0, 100)
 

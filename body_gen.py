@@ -21,7 +21,7 @@ class BodyGen:
         elif avg_temperature < 0:
             biomes = pt.PlanetType.noise_world
         elif avg_temperature < 10:
-            biomes = pt.PlanetType.noise_world
+            biomes = pt.PlanetType.g_cold_temperate_world
         elif avg_temperature < 22:
             biomes = pt.PlanetType.g_temperate_world
         elif avg_temperature < 36:

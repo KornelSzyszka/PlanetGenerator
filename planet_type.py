@@ -55,11 +55,11 @@ class PlanetType:
     )
 
     g_cold_temperate_world = (
-        __semi_arid,
         __g_savanna,
         __g_continental_steppe,
         __g_continental_forest,
         __g_continental_forest,
+        __g_taiga,
         __g_taiga,
         __g_tundra,
         __mountains,
@@ -91,6 +91,6 @@ class PlanetType:
     )
 
     clouds = (
-        (255, 255, 255, 120),
-        (255, 255, 255, 130),
+        (255, 255, 255, 190),
+        (255, 255, 235, 200),
     )
