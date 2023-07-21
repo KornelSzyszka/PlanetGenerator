@@ -4,13 +4,13 @@ import body_gen as bg
 
 resolution = 1024
 
-avg_temperature = 10
+avg_temperature = 40
 
 noise_map = ng.NoiseGen.generate_noise(resolution, avg_temperature)
 clouds_noise_map = ng.NoiseGen.generate_clouds_noise(resolution)
-water_normalized_noise, planet_normalized_noise, = noise_map
-water_map = bg.BodyGen.generate_water()
-land_map = bg.BodyGen.generate_colors(avg_temperature)
+water_normalized_noise, land_normalized_noise, = noise_map
+color_map = bg.BodyGen.generate_colors(avg_temperature)
+water_map, land_map = color_map
 cloud_map = bg.BodyGen.generate_clouds()
 
 land_image = Image.new("RGBA", (resolution, resolution))
@@ -22,7 +22,7 @@ water_array = water_image.load()
 
 for y in range(resolution):
     for x in range(resolution):
-        planet_noise_value = planet_normalized_noise[y, x]
+        planet_noise_value = land_normalized_noise[y, x]
         for (lower, upper), color in land_map.items():
             if lower <= planet_noise_value <= upper:
                 planet_array[x, y] = color
@@ -39,8 +39,8 @@ for y in range(resolution):
                 break
 
 shadow_image = Image.open("shadow.png").resize((resolution, resolution), Image.LANCZOS)
-planet_image = Image.alpha_composite(water_image, land_image)
-output_image = Image.alpha_composite(planet_image, clouds_image)
+output_image = Image.alpha_composite(water_image, land_image)
+output_image = Image.alpha_composite(output_image, clouds_image)
 output_image = Image.alpha_composite(output_image, shadow_image)
 output_image.save("Planet.png")
 output_image.show()

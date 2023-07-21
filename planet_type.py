@@ -2,9 +2,17 @@ class PlanetType:
     # Biome list
     # Water layers
     __deep_ocean = (0, 0, 70)
+    __warm_deep_ocean = (0, 160, 190)
     __ocean = (0, 0, 80)
+    __warm_ocean = (0, 170, 210)
     __coastal = (0, 10, 90)
+    __warm_coastal = (0, 190, 230)
+    __coast = (190, 180, 70)
+    __cold_coast = (80, 75, 50)
+    __frozen_coast = (190, 255, 250)
     __frozen = (225, 255, 245)
+    __frozen2 = (225, 220, 245)
+    __frozen3 = (210, 230, 230)
     # Vegetation layers
     __g_tundra = (0, 100, 90)
     __g_taiga = (0, 80, 60)
@@ -15,8 +23,6 @@ class PlanetType:
     __g_tropical = (20, 80, 20)
     __g_savanna = (115, 130, 40)
     # Land layers
-    __coast = (190, 180, 70)
-    __frozen_coast = (190, 255, 250)
     __semi_arid = (190, 140, 36)
     __arid_desert = (174, 155, 36)
     __snow_biome = (255, 255, 255)
@@ -25,6 +31,34 @@ class PlanetType:
     __cloud_body = (255, 255, 255, 160)
     __cloud_shape = (220, 255, 255, 150)
 
+    clouds = (
+        (255, 255, 255, 190),
+        (255, 255, 235, 200),
+    )
+
+    # Water maps
+    standard_ocean = (
+        __deep_ocean,
+        __ocean,
+        __coastal,
+        __coast,
+    )
+
+    frozen_ocean = (
+        __frozen,
+        __frozen2,
+        __frozen3,
+        __frozen_coast,
+    )
+
+    warm_ocean = (
+        __warm_deep_ocean,
+        __warm_ocean,
+        __warm_coastal,
+        __coast,
+    )
+
+    # Land Maps
     noise_world = (
         (0, 0, 0),
         (21, 21, 21),
@@ -41,26 +75,45 @@ class PlanetType:
     )
 
     frozen_world = (
-
-    )
-
-    ocean_layer = (
-        __deep_ocean,
-        __ocean,
-        __coastal,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
+        __snow_biome,
     )
 
     g_boreal_world = (
-
+        __g_savanna,
+        __g_taiga,
+        __g_tundra,
+        __g_taiga,
+        __g_tundra,
+        __g_taiga,
+        __g_tundra,
+        __mountains,
+        __frozen,
+        __frozen,
+        __frozen,
+        __frozen,
     )
 
     g_cold_temperate_world = (
+        __g_mediterranean,
         __g_savanna,
         __g_continental_steppe,
         __g_continental_forest,
         __g_continental_forest,
         __g_taiga,
         __g_taiga,
+        __g_taiga,
+        __g_tundra,
         __g_tundra,
         __mountains,
         __frozen,
@@ -96,15 +149,18 @@ class PlanetType:
         __g_tropical,
     )
 
-    g_atoll_world = (
-
-    )
-
     g_dune_world = (
-
+        __arid_desert,
+        __semi_arid,
+        __arid_desert,
+        __semi_arid,
+        __g_savanna,
+        __g_savanna,
+        __semi_arid,
+        __g_subtropical,
+        __g_tropical,
+        __semi_arid,
+        __g_mediterranean,
+        __mountains,
     )
 
-    clouds = (
-        (255, 255, 255, 190),
-        (255, 255, 235, 200),
-    )
