@@ -3,33 +3,38 @@ import planet_type as pt
 
 class BodyGen:
     @staticmethod
-    def generate_colors(avg_temperature):
+    def generate_colors(avg_temperature, star_type):
         # Temperature - biomes relations
         if avg_temperature < -30:
             biomes = pt.PlanetType.frozen_world
             water_map = pt.PlanetType.frozen_ocean
         elif avg_temperature < 0:
-            biomes = pt.PlanetType.g_boreal_world
+            biomes_attr = f"{star_type}_boreal_world"
+            biomes = getattr(pt.PlanetType, biomes_attr)
             water_map = pt.PlanetType.frozen_ocean
         elif avg_temperature < 10:
-            biomes = pt.PlanetType.g_cold_temperate_world
+            biomes_attr = f"{star_type}_cold_temperate_world"
+            biomes = getattr(pt.PlanetType, biomes_attr)
             water_map = pt.PlanetType.standard_ocean
         elif avg_temperature < 22:
-            biomes = pt.PlanetType.g_temperate_world
+            biomes_attr = f"{star_type}_temperate_world"
+            biomes = getattr(pt.PlanetType, biomes_attr)
             water_map = pt.PlanetType.standard_ocean
         elif avg_temperature < 36:
-            biomes = pt.PlanetType.g_tropical_world
+            biomes_attr = f"{star_type}_tropical_world"
+            biomes = getattr(pt.PlanetType, biomes_attr)
             water_map = pt.PlanetType.warm_ocean
         else:
-            biomes = pt.PlanetType.g_dune_world
+            biomes_attr = f"{star_type}_dune_world"
+            biomes = getattr(pt.PlanetType, biomes_attr)
             water_map = pt.PlanetType.warm_ocean
 
         water_map = {
             (-1.0, 0.0): (0, 0, 0, 0),  # Backgroud
             (0., 0.6): water_map[0],  # Deep ocean
             (0.6, 0.8): water_map[1],  # Ocean
-            (0.8, 0.98): water_map[2],  # Coastal
-            (0.98, 1): water_map[3],
+            (0.8, 0.97): water_map[2],  # Coastal
+            (0.97, 1): water_map[3],
         }
 
         # Painting biomes
