@@ -22,7 +22,7 @@ M-Type 16°C
 G-Type 10°C
 ![G10](https://github.com/KornelSzyszka/PlanetGenerator/assets/66333958/8df7e81f-7475-4ddb-abee-b3da01a911a1)
 -------------------------------------------------------------------------------------------------------------
-M-Type 15°C
+M-Type -15°C
 ![M-15](https://github.com/KornelSzyszka/PlanetGenerator/assets/66333958/3c6fe327-ff4e-43d3-a85c-bebdbab1e945)
 -------------------------------------------------------------------------------------------------------------
 K-Type 22°C
