@@ -31,7 +31,7 @@ K-Type 22°C
 M-Type 12°C
 ![M12](https://github.com/KornelSzyszka/PlanetGenerator/assets/66333958/93ea991d-3455-4eaf-b5ed-cc58c4f45e43)
 -------------------------------------------------------------------------------------------------------------
-G-Type 10°C
+G-Type -10°C
 ![G-10](https://github.com/KornelSzyszka/PlanetGenerator/assets/66333958/8f7f30ba-98c0-42d9-b1ef-1e532180e81e)
 -------------------------------------------------------------------------------------------------------------
 K-Type 3°C
